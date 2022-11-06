@@ -8,6 +8,8 @@ import {
   Link
 } from "react-router-dom";
 import { Login } from './components/Login/index';
+import {User} from './components/User/index'
+import About from './components/About/index'
 
 function App() {
   return (
@@ -20,6 +22,10 @@ function App() {
         <Route path="/registration" element={<Registration/>}/>
 
         <Route path="/login" element={<Login/>} />
+
+        <Route path="/user" element={<User/>}/>
+
+        <Route path="/about" element={<About/>}/>
       
         
       

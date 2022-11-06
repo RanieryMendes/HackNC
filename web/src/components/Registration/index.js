@@ -76,7 +76,7 @@ const sendDB = (data)=>{
 
    
 
-    alert("You have created your account on Thoughts for Life")
+    alert("You have created your account on Are you okay bud?")
 
  
 
@@ -91,7 +91,7 @@ function createNewUser(user, password, app){
     //const auth = getAuth(app);
     let userName = user
     let userPassword = password
-    console.log("In createnewUser function")
+    
 
     app.auth().createUserWithEmailAndPassword(user, password).catch(function(error) {
         console.log(error);
@@ -265,7 +265,7 @@ else{
                 onChange={handleChange}
                 isInvalid={!!errors.state}
               />
-                {my_data.state=values.state}
+                {/* {my_data.state=values.state} */}
               <Form.Control.Feedback type="invalid">
                 {errors.state}
               </Form.Control.Feedback>
@@ -313,7 +313,7 @@ else{
               <InputGroup hasValidation>
                 
                 <Form.Control
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   aria-describedby="inputGroupPrepend"
                   name="password"
