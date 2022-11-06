@@ -313,7 +313,7 @@ else{
               <InputGroup hasValidation>
                 
                 <Form.Control
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   aria-describedby="inputGroupPrepend"
                   name="password"
