@@ -130,7 +130,7 @@ def create_graph(NLPResult,i):
     plt.clf()
 
 def main():
-    file_array = ["./AJ_data/file1.txt","./AJ_data/file2.txt","./AJ_data/file5.txt"]
+    file_array = ["./AJ_data/file1.txt"]
     i= 1 
     for file in file_array:
         corpusST = toke_corp(file) 
