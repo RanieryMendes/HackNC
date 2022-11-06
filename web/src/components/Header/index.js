@@ -21,7 +21,7 @@ export const Header = () =>{
                 <Navbar.Brand className="secondary"> 
                 
                 <HealthAndSafetyIcon fontSize="large"> </HealthAndSafetyIcon>
-                Thoughts for Life
+                Are you okay bud?
                 
                 
                 </Navbar.Brand>
@@ -32,8 +32,8 @@ export const Header = () =>{
                    
                     <Nav.Link  style={{fontSize:"22px"}} href="/">Home</Nav.Link>
                     <Nav.Link style={{fontSize:"22px"}} href="/registration"> Register</Nav.Link>
-                    <Nav.Link  style={{fontSize:"22px"}} href="/">About</Nav.Link>
-                    <Nav.Link   style={{fontSize:"22px"}} href="/">Login</Nav.Link>
+                    <Nav.Link  style={{fontSize:"22px"}} href="/about">About</Nav.Link>
+                    <Nav.Link   style={{fontSize:"22px"}} href="/login">Login</Nav.Link>
                     
                 
                 </Nav>

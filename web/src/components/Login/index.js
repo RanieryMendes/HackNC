@@ -42,10 +42,78 @@ const sign = (data) =>{
 
     firebaseApp = firebase.initializeApp(firebaseConfig)
 
+
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          var uid = user.uid;
+          console.log(uid)
+          // ...
+        } else {
+            console.log("none")
+          // User is signed out
+          // ...
+        }
+      });
+
     firebaseApp.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         console.log(error);
     });
+
+
     
+//     firebaseApp.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+//     .then(() => {
+
+//         console.log("Aparentement logado")
+//     // Existing and future Auth states are now persisted in the current
+//     // session only. Closing the window would clear any existing state even
+//     // if a user forgets to sign out.
+//     // ...
+//     // New sign-in will be persisted with session persistence.
+//     return firebaseApp.auth().signInWithEmailAndPassword(email, password);
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//   });
+
+let info
+
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+
+    info = user
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+
+
+//   var db = firebaseApp.firestore(firebaseApp)
+
+
+//   let colection = db.collection("data_register")
+
+//   dbRef = colection.doc(info)
+
+//   dbRef.get().then((doc)=>{
+//     let dados = doc.data()
+
+//     var user_name = dados.firstName
+
+    
+
+
+   
 
 }
 
@@ -62,7 +130,7 @@ export const Login = () =>{
     
 if(show){
   return (
-    <Navigate to="/" />
+    <Navigate to="/user" />
   )
 }
 else{
@@ -77,10 +145,11 @@ else{
       onSubmit={async (values) => {
         await new Promise((r) => setTimeout(r, 500));
         sign(values)
+        setShow(true)
         
         
+        alert("You are gonna be okay bud!")
         
-        setShow(false)
         
         
         
