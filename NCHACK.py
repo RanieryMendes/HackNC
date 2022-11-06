@@ -135,18 +135,20 @@ def main():
     for file in file_array:
         corpusST = toke_corp(file) 
         num_array = []   
+
         for sentence in corpusST[:5]:
-            print(">", is_positive(sentence), sentence)
+            print(("Sentence Positivty is >"), is_positive(sentence),sentence )
+
         avg_total = avg_sentiment(corpusST,"compound")
         avg_negative =avg_sentiment(corpusST,"neg")
         avg_neutral =avg_sentiment(corpusST,"neu")
         avg_postive =avg_sentiment(corpusST,"pos")
 
         #Prints sentiment values for each file in the array 
-        print(avg_total)          
-        print(avg_negative)
-        print(avg_neutral)
-        print(avg_postive)
+        print("Average Compound Sentiment Value =",avg_total)          
+        print("Average Negative Sentiment Value ",avg_negative)
+        print("Average Neutral Sentiment Value ",avg_neutral)
+        print("Average Positive Sentiment Value ",avg_postive)
 
         #prints the level of urgency message for each file 
         num_array = [avg_negative, avg_neutral,avg_postive]
