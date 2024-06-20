@@ -22,23 +22,36 @@ import * as yup from 'yup';
 import {Header} from '../Header/index'
 import { useState } from 'react';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBlLP43DpuVBUauqr3Bp4jWt_-k5k-d32U",
-    authDomain: "potatolarge-546ca.firebaseapp.com",
-    projectId: "potatolarge-546ca",
-    storageBucket: "potatolarge-546ca.appspot.com",
-    messagingSenderId: "108695117848",
-    appId: "1:108695117848:web:30d691700a27f29cc3a36d",
-    measurementId: "G-XFCC1PL167"
-  };
+// const firebaseConfig = {
+//     apiKey: "AIzaSyBlLP43DpuVBUauqr3Bp4jWt_-k5k-d32U",
+//     authDomain: "potatolarge-546ca.firebaseapp.com",
+//     projectId: "potatolarge-546ca",
+//     storageBucket: "potatolarge-546ca.appspot.com",
+//     messagingSenderId: "108695117848",
+//     appId: "1:108695117848:web:30d691700a27f29cc3a36d",
+//     measurementId: "G-XFCC1PL167"
+//   };
 
+
+  
+// require('dotenv').config();  
+// const firebaseConfig = {
+//   apiKey: process.env.APIKEY,
+//   authDomain: process.env.AUTHDOMAIN,
+//   projectId: process.env.PROJECTID,
+//   storageBucket: process.env.STORAGEBUCKET,
+//   messagingSenderId:  process.env.MESSAGEID,
+//   appId: process.env.APPID
+// };
+
+import { firebaseConfig } from '../../firebaseConfig';
 
 const sign = (data) =>{
 
     const {email, password} = data
 
     let firebaseApp; 
- 
+    
 
     firebaseApp = firebase.initializeApp(firebaseConfig)
 

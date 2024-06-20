@@ -28,16 +28,25 @@ import { Container } from '@mui/material';
 
 
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBlLP43DpuVBUauqr3Bp4jWt_-k5k-d32U",
-    authDomain: "potatolarge-546ca.firebaseapp.com",
-    projectId: "potatolarge-546ca",
-    storageBucket: "potatolarge-546ca.appspot.com",
-    messagingSenderId: "108695117848",
-    appId: "1:108695117848:web:30d691700a27f29cc3a36d",
-    measurementId: "G-XFCC1PL167"
-  };
-
+// const firebaseConfig = {
+//     apiKey: "AIzaSyBlLP43DpuVBUauqr3Bp4jWt_-k5k-d32U",
+//     authDomain: "potatolarge-546ca.firebaseapp.com",
+//     projectId: "potatolarge-546ca",
+//     storageBucket: "potatolarge-546ca.appspot.com",
+//     messagingSenderId: "108695117848",
+//     appId: "1:108695117848:web:30d691700a27f29cc3a36d",
+//     measurementId: "G-XFCC1PL167"
+//   };
+// require('dotenv').config();
+// const firebaseConfig = {
+//   apiKey: process.env.APIKEY,
+//   authDomain: process.env.AUTHDOMAIN,
+//   projectId: process.env.PROJECTID,
+//   storageBucket: process.env.STORAGEBUCKET,
+//   messagingSenderId:  process.env.MESSAGEID,
+//   appId: process.env.APPID
+// };
+import { firebaseConfig } from '../../firebaseConfig';
 
 const schema = yup.object().shape({
     log_text: yup.string().min(500).required()})
@@ -112,13 +121,12 @@ export const User = () =>{
       onSubmit={async (values) => {
         await new Promise((r) => setTimeout(r, 500));
         
-        let identifier = "gk9g5904iN2TfAdawUno"
+        let identifier = "gilNoGQhVRLpS7keFsd5"
         save_entry(values, identifier)
         
        
         
         
-        alert("You are in")
         
         setShow(true)
         

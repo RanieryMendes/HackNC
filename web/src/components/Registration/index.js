@@ -23,60 +23,71 @@ import {Header} from '../Header/index'
 import { useState } from 'react';
 
 //const { Formik } = formik;
-const firebaseConfig = {
-    apiKey: "AIzaSyBlLP43DpuVBUauqr3Bp4jWt_-k5k-d32U",
-    authDomain: "potatolarge-546ca.firebaseapp.com",
-    projectId: "potatolarge-546ca",
-    storageBucket: "potatolarge-546ca.appspot.com",
-    messagingSenderId: "108695117848",
-    appId: "1:108695117848:web:30d691700a27f29cc3a36d",
-    measurementId: "G-XFCC1PL167"
-  };
+// const firebaseConfig = {
+//     apiKey: "AIzaSyBlLP43DpuVBUauqr3Bp4jWt_-k5k-d32U",
+//     authDomain: "potatolarge-546ca.firebaseapp.com",
+//     projectId: "potatolarge-546ca",
+//     storageBucket: "potatolarge-546ca.appspot.com",
+//     messagingSenderId: "108695117848",
+//     appId: "1:108695117848:web:30d691700a27f29cc3a36d",
+//     measurementId: "G-XFCC1PL167"
+//   };
+// require('dotenv').config();
+// const firebaseConfig = {
+//   apiKey: process.env.APIKEY,
+//   authDomain: process.env.AUTHDOMAIN,
+//   projectId: process.env.PROJECTID,
+//   storageBucket: process.env.STORAGEBUCKET,
+//   messagingSenderId:  process.env.MESSAGEID,
+//   appId: process.env.APPID
+// };
+import { firebaseConfig } from '../../firebaseConfig';
 
 
 
 
+// const sendDB = (data)=>{
 
-const sendDB = (data)=>{
+//     const {firstName, lastName, username, city, state, zip, email, password,  therapist, therapist_email} = data
 
-    const {firstName, lastName, username, city, state, zip, email, password,  therapist, therapist_email} = data
-
-    let firebaseApp; 
+//     let firebaseApp; 
  
 
-    firebaseApp = firebase.initializeApp(firebaseConfig)
+//     firebaseApp = firebase.initializeApp(firebaseConfig)
     
-    console.log(my_data.firstName)
+//     console.log(my_data.firstName)
 
     
-    //const analytics = getAnalytics(app);
-    var db = firebaseApp.firestore(firebaseApp)
+//     //const analytics = getAnalytics(app);
+//     var db = firebaseApp.firestore(firebaseApp)
 
 
-    let colection = db.collection("data_register")
+//     let colection = db.collection("data_register")
 
-    colection.add({
-       firstName : firstName, 
-       lastName: lastName, 
-       username : username,
-       city: city, 
-       state: state,
-       zip: zip,
-       email: email,
-       password:password,
-       therapist: therapist,
-       therapist_email: therapist_email 
-    }).then((snapshot)=>{
+//     colection.add({
+//        firstName : firstName, 
+//        lastName: lastName, 
+//        username : username,
+//        city: city, 
+//        state: state,
+//        zip: zip,
+//        email: email,
+//        password:password,
+//        therapist: therapist,
+//        therapist_email: therapist_email 
+//     }).then((snapshot)=>{
     
-        console.log("New doc added: ", snapshot)
-    })
+//         console.log("New doc added: ", snapshot)
+//     }).catch((error) => {
+//       console.error("Error adding document: ", error);
+//   });
 
 
-    createNewUser(email, password, firebaseApp)
+//     createNewUser(email, password, firebaseApp)
 
    
 
-    alert("You have created your account on Are you okay bud?")
+//     alert("You have created your account on Are you okay bud?")
 
  
 
@@ -85,314 +96,602 @@ const sendDB = (data)=>{
 
 
 
-}
-function createNewUser(user, password, app){
+// }
+// function createNewUser(user, password, app){
     
-    //const auth = getAuth(app);
-    let userName = user
-    let userPassword = password
+//     //const auth = getAuth(app);
+//     let userName = user
+//     let userPassword = password
     
 
-    app.auth().createUserWithEmailAndPassword(user, password).catch(function(error) {
-        console.log(error);
+//     app.auth().createUserWithEmailAndPassword(user, password).catch(function(error) {
+//         console.log(error);
+//     });
+
+// //     auth.createUserWithEmailAndPassword(app, userName, userPassword).then((user_credential)=>{
+// //     console.log(user_credential)
+// // }).catch(err=>{
+// //     console.log(err)
+// // })
+// }
+// const my_data={
+//     firstName:"",
+//     lastName: "",
+//     username: "",
+//     city: "",
+//     state: "",
+//     zip: "",
+//     email: "",
+//     password:"",
+//     therapist: "",
+//     therapist_email:"",
+    
+// }
+
+// const schema = yup.object().shape({
+//   firstName: yup.string().min(2, 'Too Short!')
+//   .max(50, 'Too Long!').required(),
+//   lastName: yup.string().min(2, 'Too Short!')
+//   .max(50, 'Too Long!').required(),
+//   username: yup.string().required(),
+//   city: yup.string().required(),
+//   state: yup.string().required(),
+//   zip: yup.string().required(),
+//   email: yup.string().email().required(),
+//   password:yup.string().min(8, 'Password is too short - should be 8 chars minimum.').required(),
+//   therapist: yup.string().required(),
+//   therapist_email: yup.string().required(),
+//   terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
+// });
+
+// export const Registration = () => {
+
+//     const [show, setShow] = useState(false)
+
+//     let tag = show
+    
+// if(show){
+//   return (
+//     <Navigate to="/"/>
+//   )
+// }
+// else{
+//     return (
+//   <div>
+
+//     <Header/>
+
+//     <Formik
+//       validationSchema={schema}
+//       onSubmit={async (values) => {
+//         await new Promise((r) => setTimeout(r, 500));
+//         sendDB(values)
+        
+//         setShow(true)
+        
+        
+//       }}
+//       initialValues={{
+//         firstName: '',
+//         lastName: '',
+//         username: '',
+//         city: '',
+//         state: '',
+//         zip: '',
+//         email:'',
+//         therapist:'',
+//         therapist_email:'',
+//         password:'',
+//         terms: false,
+//       }}
+//     >
+
+
+//       {({
+//         handleSubmit,
+//         handleChange,
+//         handleBlur,
+//         values,
+//         touched,
+//         isValid,
+//         errors,
+//       }) => (
+
+        
+//         <Form noValidate onSubmit={handleSubmit}>
+//           <Row className="mb-3">
+//             <Form.Group as={Col} md="4" controlId="validationFormik01">
+//               <Form.Label>First name</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 name="firstName"
+//                 value={values.firstName}
+//                 onChange={handleChange}
+//                 isValid={touched.firstName && !errors.firstName}
+//               />
+//  {/* {my_data.firstName=values.firstName} */}
+//               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+//             </Form.Group>
+//             <Form.Group as={Col} md="4" controlId="validationFormik02">
+//               <Form.Label>Last name</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 name="lastName"
+//                 value={values.lastName}
+//                 onChange={handleChange}
+//                 isValid={touched.lastName && !errors.lastName}
+//               />
+//                  {/* {my_data.lastName=values.lastName} */}
+//               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+//             </Form.Group>
+//             <Form.Group as={Col} md="4" controlId="validationFormikUsername">
+//               <Form.Label>Username</Form.Label>
+//               <InputGroup hasValidation>
+//                 <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+//                 <Form.Control
+//                   type="text"
+//                   placeholder="Username"
+//                   aria-describedby="inputGroupPrepend"
+//                   name="username"
+//                   value={values.username}
+//                   onChange={handleChange}
+//                   isInvalid={!!errors.username}
+//                 />
+//                 {/* {my_data.username=values.username} */}
+                  
+//                 <Form.Control.Feedback type="invalid">
+//                   {errors.username}
+//                 </Form.Control.Feedback>
+//               </InputGroup>
+//             </Form.Group>
+//           </Row>
+
+          
+//           <Row className="mb-3">
+//             <Form.Group as={Col} md="6" controlId="validationFormik03">
+//               <Form.Label>City</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="City"
+//                 name="city"
+//                 value={values.city}
+//                 onChange={handleChange}
+//                 isInvalid={!!errors.city}
+//               />
+
+//                 {/* {my_data.city=values.city} */}
+//               <Form.Control.Feedback type="invalid">
+//                 {errors.city}
+//               </Form.Control.Feedback>
+//             </Form.Group>
+//             <Form.Group as={Col} md="3" controlId="validationFormik04">
+//               <Form.Label>State</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="State"
+//                 name="state"
+//                 value={values.state}
+//                 onChange={handleChange}
+//                 isInvalid={!!errors.state}
+//               />
+//                 {/* {my_data.state=values.state} */}
+//               <Form.Control.Feedback type="invalid">
+//                 {errors.state}
+//               </Form.Control.Feedback>
+//             </Form.Group>
+
+//             <Form.Group as={Col} md="3" controlId="validationFormik05">
+//               <Form.Label>Zip</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="Zip"
+//                 name="zip"
+//                 value={values.zip}
+//                 onChange={handleChange}
+//                 isInvalid={!!errors.zip}
+//               />
+
+//                 {/* {my_data.zip=values.zip} */}
+//               <Form.Control.Feedback type="invalid">
+//                 {errors.zip}
+//               </Form.Control.Feedback>
+            
+//               </Form.Group>
+//             </Row>  
+//             <Row className="mb-3">
+//               <Form.Group as={Col} md="3" controlId="validationFormik06">
+//               <Form.Label>Email</Form.Label>
+//               <Form.Control
+//                 type="email"
+//                 placeholder="Email"
+//                 name="email"
+//                 value={values.email}
+//                 onChange={handleChange}
+//                 isInvalid={!!errors.email}
+//               />
+//               {/* {my_data.email=values.email} */}
+//               <Form.Control.Feedback type="invalid">
+//                 {errors.email}
+//               </Form.Control.Feedback>
+
+
+//             </Form.Group>
+
+//             <Form.Group as={Col} md="4" controlId="validationFormikUsername">
+//               <Form.Label>Password</Form.Label>
+//               <InputGroup hasValidation>
+                
+//                 <Form.Control
+//                   type="password"
+//                   placeholder="Password"
+//                   aria-describedby="inputGroupPrepend"
+//                   name="password"
+//                   value={values.password}
+//                   onChange={handleChange}
+//                   isInvalid={!!errors.username}
+//                 />
+//                   {/* {my_data.password=values.password} */}
+//                 <Form.Control.Feedback type="invalid">
+//                   {errors.username}
+//                 </Form.Control.Feedback>
+//               </InputGroup>
+//             </Form.Group>
+
+
+
+
+//             <Form.Group as={Col} md="3" controlId="validationFormik07">
+//               <Form.Label>Therapist Information</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="First and Last Name"
+//                 name="therapist"
+//                 value={values.therapist}
+//                 onChange={handleChange}
+//                 isInvalid={!!errors.therapist}
+//               />
+//                {/* {my_data.therapist=values.therapist} */}
+//               <Form.Control.Feedback type="invalid">
+//                 {errors.therapist}
+//               </Form.Control.Feedback>
+
+
+//             </Form.Group>
+//             <Form.Group as={Col} md="3" controlId="validationFormik08">
+//               <Form.Label>Therapist's Email</Form.Label>
+//               <Form.Control
+//                 type="email"
+//                 placeholder="Your Therapist's Email"
+//                 name="therapist_email"
+//                 value={values.therapist_email}
+//                 onChange={handleChange}
+//                 isInvalid={!!errors.therapist_email}
+//               />
+//                {/* {my_data.therapist_email=values.therapist_email} */}
+//               <Form.Control.Feedback type="invalid">
+//                 {errors.therapist_email}
+//               </Form.Control.Feedback>
+
+
+//             </Form.Group>
+//           </Row>
+          
+//           <Form.Group className="mb-3">
+//             <Form.Check
+//               required
+//               name="terms"
+//               label="Agree to terms and conditions"
+//               onChange={handleChange}
+//               isInvalid={!!errors.terms}
+//               feedback={errors.terms}
+//               feedbackType="invalid"
+//               id="validationFormik0"
+//             />
+//           </Form.Group>
+          
+//           <Button type="submit">Submit form</Button>
+         
+//         </Form>
+
+//       )}
+//     </Formik>
+    
+
+
+//     </div>
+//   );
+// }
+
+// }
+
+
+// import React, { useState } from "react";
+// import { Header } from '../Header/index';
+// import { Formik, Form } from 'formik';
+// import { Row, Col, InputGroup, Button } from 'react-bootstrap';
+// import * as yup from 'yup';
+// import firebase from 'firebase/app';
+// import 'firebase/firestore';
+// import 'firebase/auth';
+
+// // Firebase configuration
+// const firebaseConfig = {
+//   // Your Firebase configuration here
+// };
+
+// Ensure Firebase is initialized once
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+const sendDB = async (data) => {
+  const { firstName, lastName, username, city, state, zip, email, password, therapist, therapist_email } = data;
+  
+  const firebaseApp = firebase.app(); // Get the initialized app
+  const db = firebaseApp.firestore();
+  
+  try {
+    // Add document to Firestore
+    const snapshot = await db.collection("data_register").add({
+      firstName,
+      lastName,
+      username,
+      city,
+      state,
+      zip,
+      email,
+      password,
+      therapist,
+      therapist_email
     });
-
-//     auth.createUserWithEmailAndPassword(app, userName, userPassword).then((user_credential)=>{
-//     console.log(user_credential)
-// }).catch(err=>{
-//     console.log(err)
-// })
-}
-const my_data={
-    firstName:"",
-    lastName: "",
-    username: "",
-    city: "",
-    state: "",
-    zip: "",
-    email: "",
-    password:"",
-    therapist: "",
-    therapist_email:"",
     
-}
+    console.log("New doc added: ", snapshot);
+    
+    // Create new user
+    await createNewUser(email, password, firebaseApp);
+    
+    alert("You have created your account on Are you okay bud?");
+     
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
+};
+
+const createNewUser = async (email, password, app) => {
+  try {
+    await app.auth().createUserWithEmailAndPassword(email, password);
+    console.log("User created successfully");
+  } catch (error) {
+    console.error("Error creating user: ", error);
+  }
+};
 
 const schema = yup.object().shape({
-  firstName: yup.string().min(2, 'Too Short!')
-  .max(50, 'Too Long!').required(),
-  lastName: yup.string().min(2, 'Too Short!')
-  .max(50, 'Too Long!').required(),
+  firstName: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required(),
+  lastName: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required(),
   username: yup.string().required(),
   city: yup.string().required(),
   state: yup.string().required(),
   zip: yup.string().required(),
   email: yup.string().email().required(),
-  password:yup.string().min(8, 'Password is too short - should be 8 chars minimum.').required(),
+  password: yup.string().min(8, 'Password is too short - should be 8 chars minimum.').required(),
   therapist: yup.string().required(),
-  therapist_email: yup.string().required(),
+  therapist_email: yup.string().email().required(),
   terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
 });
 
 export const Registration = () => {
+  const [show, setShow] = useState(false);
 
-    const [show, setShow] = useState(false)
-
-    let tag = show
-    
-if(show){
-  return (
-    <Navigate to="/"/>
-  )
-}
-else{
+  if (show) {
+    return <Navigate to="/" />;
+  } else {
     return (
-  <div>
-
-    <Header/>
-
-    <Formik
-      validationSchema={schema}
-      onSubmit={async (values) => {
-        await new Promise((r) => setTimeout(r, 500));
-        sendDB(values)
-        
-        
-        setShow(true)
-        
-        
-        
-      }}
-      initialValues={{
-        firstName: 'AJ',
-        lastName: 'Pinheiro',
-        username: '',
-        city: '',
-        state: '',
-        zip: '',
-        email:'',
-        therapist:'',
-        therapist_email:'',
-        password:'',
-        terms: false,
-      }}
-    >
-
-
-      {({
-        handleSubmit,
-        handleChange,
-        handleBlur,
-        values,
-        touched,
-        isValid,
-        errors,
-      }) => (
-
-        
-        <Form noValidate onSubmit={handleSubmit}>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="4" controlId="validationFormik01">
-              <Form.Label>First name</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                value={values.firstName}
-                onChange={handleChange}
-                isValid={touched.firstName && !errors.firstName}
-              />
- {/* {my_data.firstName=values.firstName} */}
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationFormik02">
-              <Form.Label>Last name</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                value={values.lastName}
-                onChange={handleChange}
-                isValid={touched.lastName && !errors.lastName}
-              />
-                 {/* {my_data.lastName=values.lastName} */}
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationFormikUsername">
-              <Form.Label>Username</Form.Label>
-              <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                <Form.Control
-                  type="text"
-                  placeholder="Username"
-                  aria-describedby="inputGroupPrepend"
-                  name="username"
-                  value={values.username}
+      <div>
+        <Header />
+        <Formik
+          validationSchema={schema}
+          onSubmit={async (values) => {
+            await new Promise((r) => setTimeout(r, 1000));
+            await sendDB(values);
+            console.log("Run api");
+            setShow(true);
+          }}
+          initialValues={{
+            firstName: '',
+            lastName: '',
+            username: '',
+            city: '',
+            state: '',
+            zip: '',
+            email: '',
+            therapist: '',
+            therapist_email: '',
+            password: '',
+            terms: false,
+          }}
+        >
+          {({
+            handleSubmit,
+            handleChange,
+            handleBlur,
+            values,
+            touched,
+            isValid,
+            errors,
+          }) => (
+            <Form noValidate onSubmit={handleSubmit}>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="4" controlId="validationFormik01">
+                  <Form.Label>First name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="firstName"
+                    value={values.firstName}
+                    onChange={handleChange}
+                    isValid={touched.firstName && !errors.firstName}
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="4" controlId="validationFormik02">
+                  <Form.Label>Last name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="lastName"
+                    value={values.lastName}
+                    onChange={handleChange}
+                    isValid={touched.lastName && !errors.lastName}
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="4" controlId="validationFormikUsername">
+                  <Form.Label>Username</Form.Label>
+                  <InputGroup hasValidation>
+                    <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                    <Form.Control
+                      type="text"
+                      placeholder="Username"
+                      aria-describedby="inputGroupPrepend"
+                      name="username"
+                      value={values.username}
+                      onChange={handleChange}
+                      isInvalid={!!errors.username}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.username}
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Form.Group>
+              </Row>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="6" controlId="validationFormik03">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="City"
+                    name="city"
+                    value={values.city}
+                    onChange={handleChange}
+                    isInvalid={!!errors.city}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.city}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="validationFormik04">
+                  <Form.Label>State</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="State"
+                    name="state"
+                    value={values.state}
+                    onChange={handleChange}
+                    isInvalid={!!errors.state}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.state}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="validationFormik05">
+                  <Form.Label>Zip</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Zip"
+                    name="zip"
+                    value={values.zip}
+                    onChange={handleChange}
+                    isInvalid={!!errors.zip}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.zip}
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Row>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="3" controlId="validationFormik06">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    isInvalid={!!errors.email}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="4" controlId="validationFormikPassword">
+                  <Form.Label>Password</Form.Label>
+                  <InputGroup hasValidation>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      value={values.password}
+                      onChange={handleChange}
+                      isInvalid={!!errors.password}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.password}
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="validationFormik07">
+                  <Form.Label>Therapist Information</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="First and Last Name"
+                    name="therapist"
+                    value={values.therapist}
+                    onChange={handleChange}
+                    isInvalid={!!errors.therapist}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.therapist}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="validationFormik08">
+                  <Form.Label>Therapist's Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Your Therapist's Email"
+                    name="therapist_email"
+                    value={values.therapist_email}
+                    onChange={handleChange}
+                    isInvalid={!!errors.therapist_email}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.therapist_email}
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Row>
+              <Form.Group className="mb-3">
+                <Form.Check
+                  required
+                  name="terms"
+                  label="Agree to terms and conditions"
                   onChange={handleChange}
-                  isInvalid={!!errors.username}
+                  isInvalid={!!errors.terms}
+                  feedback={errors.terms}
+                  feedbackType="invalid"
+                  id="validationFormik0"
                 />
-                {/* {my_data.username=values.username} */}
-                  
-                <Form.Control.Feedback type="invalid">
-                  {errors.username}
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-          </Row>
-
-          
-          <Row className="mb-3">
-            <Form.Group as={Col} md="6" controlId="validationFormik03">
-              <Form.Label>City</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="City"
-                name="city"
-                value={values.city}
-                onChange={handleChange}
-                isInvalid={!!errors.city}
-              />
-
-                {/* {my_data.city=values.city} */}
-              <Form.Control.Feedback type="invalid">
-                {errors.city}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="3" controlId="validationFormik04">
-              <Form.Label>State</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="State"
-                name="state"
-                value={values.state}
-                onChange={handleChange}
-                isInvalid={!!errors.state}
-              />
-                {/* {my_data.state=values.state} */}
-              <Form.Control.Feedback type="invalid">
-                {errors.state}
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group as={Col} md="3" controlId="validationFormik05">
-              <Form.Label>Zip</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Zip"
-                name="zip"
-                value={values.zip}
-                onChange={handleChange}
-                isInvalid={!!errors.zip}
-              />
-
-                {/* {my_data.zip=values.zip} */}
-              <Form.Control.Feedback type="invalid">
-                {errors.zip}
-              </Form.Control.Feedback>
-            
               </Form.Group>
-            </Row>  
-            <Row className="mb-3">
-              <Form.Group as={Col} md="3" controlId="validationFormik06">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Email"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-                isInvalid={!!errors.email}
-              />
-              {/* {my_data.email=values.email} */}
-              <Form.Control.Feedback type="invalid">
-                {errors.email}
-              </Form.Control.Feedback>
 
-
-            </Form.Group>
-
-            <Form.Group as={Col} md="4" controlId="validationFormikUsername">
-              <Form.Label>Password</Form.Label>
-              <InputGroup hasValidation>
-                
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  aria-describedby="inputGroupPrepend"
-                  name="password"
-                  value={values.password}
-                  onChange={handleChange}
-                  isInvalid={!!errors.username}
-                />
-                  {/* {my_data.password=values.password} */}
-                <Form.Control.Feedback type="invalid">
-                  {errors.username}
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-
-
-
-
-            <Form.Group as={Col} md="3" controlId="validationFormik07">
-              <Form.Label>Therapist Information</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="First and Last Name"
-                name="therapist"
-                value={values.therapist}
-                onChange={handleChange}
-                isInvalid={!!errors.therapist}
-              />
-               {/* {my_data.therapist=values.therapist} */}
-              <Form.Control.Feedback type="invalid">
-                {errors.therapist}
-              </Form.Control.Feedback>
-
-
-            </Form.Group>
-            <Form.Group as={Col} md="3" controlId="validationFormik08">
-              <Form.Label>Therapist's Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Your Therapist's Email"
-                name="therapist_email"
-                value={values.therapist_email}
-                onChange={handleChange}
-                isInvalid={!!errors.therapist_email}
-              />
-               {/* {my_data.therapist_email=values.therapist_email} */}
-              <Form.Control.Feedback type="invalid">
-                {errors.therapist_email}
-              </Form.Control.Feedback>
-
-
-            </Form.Group>
-          </Row>
-          
-          <Form.Group className="mb-3">
-            <Form.Check
-              required
-              name="terms"
-              label="Agree to terms and conditions"
-              onChange={handleChange}
-              isInvalid={!!errors.terms}
-              feedback={errors.terms}
-              feedbackType="invalid"
-              id="validationFormik0"
-            />
-          </Form.Group>
-          
-          <Button type="submit">Submit form</Button>
+              <Button type="submit">Submit form</Button>
          
-        </Form>
+                 </Form>
+         
+               )}
+             </Formik>
+             
+         
+         
+         </div>
+         ); 
 
-      )}
-    </Formik>
-    
-
-
-    </div>
-  );
-}
-
-}
-
-
+        }
+      }
+             
