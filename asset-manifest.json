@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/HackNC/static/js/main.4b7227f1.js",
+    "static/js/787.d1d4a2c2.chunk.js": "/HackNC/static/js/787.d1d4a2c2.chunk.js",
+    "static/media/raniery.jpg": "/HackNC/static/media/raniery.32c132c4c777a27e0e13.jpg",
+    "static/media/image_1.png": "/HackNC/static/media/image_1.0decf35a3459783af295.png",
+    "static/media/aj.jpeg": "/HackNC/static/media/aj.a61a6459cf1b58b093a5.jpeg",
+    "static/media/image_3.jpeg": "/HackNC/static/media/image_3.fb480a1cb76846f16345.jpeg",
+    "static/media/image_4.jpeg": "/HackNC/static/media/image_4.426c3df29c34ba0a1d9c.jpeg",
+    "static/media/joao.jpeg": "/HackNC/static/media/joao.8f189663be8869fd9ee1.jpeg",
+    "static/media/file1.png": "/HackNC/static/media/file1.a805af9641786f1da04a.png",
+    "index.html": "/HackNC/index.html",
+    "main.4b7227f1.js.map": "/HackNC/static/js/main.4b7227f1.js.map",
+    "787.d1d4a2c2.chunk.js.map": "/HackNC/static/js/787.d1d4a2c2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.4b7227f1.js"
+  ]
+}
